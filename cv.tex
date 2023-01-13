@@ -116,12 +116,12 @@
 % \end{tabularx}
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
+\Huge{Paolo Grisoli} \\[7pt]
+\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ paolo\_g84@icloud.com} \ $|$ \ 
+\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +39 3270636139} \ $|$ \
+% \href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+\href{https://github.com/kind84}{\raisebox{-0.05\height}\faGithub\ kind84} \ $|$ \ 
+\href{https://linkedin.com/in/paolo-grisoli-643015132}{\raisebox{-0.05\height}\faLinkedin\ paolo-grisoli-643015132} \\ 
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -130,34 +130,50 @@
 
 %Interests/ Keywords/ Summary
 \section{Summary}
-This CV is automatically generated and deployed using the \href{https://github.com/jitinnair1/autoCV}{autoCV} template along with GitHub Actions such that a new version of the CV is compiled, published and ready for use when the cv.tex file is updated. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\multicolumn{2}{@{}X@{}}{Passionate self taught software engineer, committed to lifetime learning.
+Working experience on distributed systems, image processing, blockchain. Interested into low-level system programming, HPC, bitcoin.}\\
+\end{tabularx}
 
 %Experience
 \section{Work Experience}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Designation} & \hfill Jan 2021 - present \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\textbf{Software Engineer @ Polygon} & \hfill Oct 2022 - present \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Member of the zkEVM-node team. The project is about building a second layer network, helping Ethereum to scale using zk-rollups
+(\href{https://github.com/0xPolygonHermez/zkevm-node}{https://github.com/0xPolygonHermez/zkevm-node}). Development of the core logic of the node, integrating ZK Proofs, Ethereum L1 interaction. Focusing on concurrency patterns. Golang, Docker, PostgreSQL, C++.}\\
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Designation} & \hfill Mar 2019 - Jan 2021 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-\begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-        \item[--] long long line of blah blah that will wrap when the table fills the column width
-        \item[--] again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-    \end{itemize}
-    \end{minipage}
+\textbf{Softrware Engineer @ Keen Eye} & \hfill Sept 2019 - Sept 2022 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Backend team member of the AI-based biomedical image analysis platform. Server-side development (Golang) and image processing (C++, Zig). Main accomplishment: concurrent image ingestion and processing pipeline.  Golang, Kubernetes, MongoDB, Redis, C++, Zig.}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Softrware Engineer @ 4ward} & \hfill Sept 2017 - Sept 2019 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Development of distributed server-side web applications and APIs.
+Main project: Microservices application for a Fintech company. Main challenges: asynchronous messaging, credit card payment processing.
+{C\#, Golang, Python, MongoDB, PostgreSQL, Redis, RabbitMQ, Elasticsearch.}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Data Analyst @ Valvitalia} & \hfill Jan 2013 - Aug 2017 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{First steps into self-taught programming. Development of VB applications based on MS Excel and MS Access. Creating dashboards in PowerBI.
 }
 \end{tabularx}
 
 %Projects
-\section{Projects}
+\section{Personal Projects}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\textbf{ZigIO} & \hfill \href{https://github.com/kind84/zig-io}{https://github.com/kind84/zig-io} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Converter for translating image files into a common format, typically a parallel-friendly format to be stored in the cloud like N5 or Zarr. This project is a port in Zig of an existing C++ project.}  \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{iguaN5} & \hfill \href{https://github.com/kind84/iguan5}{https://github.com/kind84/iguan5} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{ZIG library to interact with the cloud-friendly \href{https://github.com/saalfeldlab/n5}{N5 format}. Educational project to get familiar with N5.}  \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -165,34 +181,33 @@ This CV is automatically generated and deployed using the \href{https://github.c
 %----------------------------------------------------------------------------------------
 \section{Education}
 \begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
+2003 - 2007 & Bachelor's Degree at \textbf{Università Cattolica del Sacro Cuore} \hfill (100/110) \\ 
 
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
-
-2022 & Class 12th Some Board \hfill  (Grades) \\
-
-2021 & Class 10th Some Board \hfill  (Grades) \\
+2022 & Science and Maths High School at \textbf{Liceo Scientifico A.Volta} \hfill  (95/100) \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS
 %----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
+% \section{Publications}
+% \begin{refsection}[citations.bib]
+% \nocite{*}
+% \printbibliography[heading=none]
+% \end{refsection}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS
 %----------------------------------------------------------------------------------------
 \section{Skills}
+
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+Languages  &  \normalsize{Golang, Zig, C/C++, Rust.}\\[3pt]
+Platforms and tools &  \normalsize{Linux, Docker/Kubernetes, AWS, Databases (Redis, MongoDB, PostgreSQL).}\\[3pt]
+Soft Skills &  \normalsize{Meticulous and persevering, Agile principles, collaborative and friendly.}\\[3pt]  
 \end{tabularx}
 
 \vfill
 \center{\footnotesize Last updated: \today}
 
 \end{document}
+
