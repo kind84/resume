@@ -48,7 +48,11 @@
 %	PACKAGES
 %----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip} 	
+\usepackage{parskip}
+\usepackage{svg}
+\usepackage{fancyhdr}
+\setlength{\headheight}{13.59999pt}
+\setlength{\footskip}{35.69884pt}
 
 %other packages for formatting
 \RequirePackage{color}
@@ -103,7 +107,9 @@
 \begin{document}
 
 % non-numbered pages
-\pagestyle{empty} 
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
 
 %----------------------------------------------------------------------------------------
 %	TITLE
@@ -120,8 +126,8 @@
 \href{mailto:paolo_g84@icloud.com}{\raisebox{-0.05\height}\faEnvelope \ paolo\_g84@icloud.com} \ $|$ \ 
 \href{tel:+393270636139}{\raisebox{-0.05\height}\faMobile \ +39 3270636139} \ $|$ \
 % \href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{https://github.com/kind84}{\raisebox{-0.05\height}\faGithub\ kind84} \ $|$ \ 
-\href{https://linkedin.com/in/paologrisoli84}{\raisebox{-0.05\height}\faLinkedin\ paologrisoli84} \\ 
+\href{https://github.com/kind84}{\raisebox{-0.05\height}\faGithub\ kind84} \ $|$ \
+\href{https://codeberg.org/kind84}{\raisebox{-0.05\height}\faMountain\ kind84} \\ 
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -139,14 +145,19 @@ Working experience on distributed systems, image processing, blockchain. Interes
 \section{Work Experience}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Software Engineer @ 4Securitas} & \hfill Apr 2023 - present \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Backend Core Dev. Building from scratch the new version of the cybersecurity platform. Shaping the architecture to meet business requirements. Mentoring junior devs. Golang, Docker, PostgreSQL, Redis.}\\
+\textbf{Senior Software Engineer @ Majelan} & \hfill Oct 2024 - present \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Core API Backend Team. Podcasting and text to speech platform. Building microservices, updating large legacy codebase. Driving design decisions, writing extensive documentation, mentoring. Golang, Docker, MySQL, Redis.}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Software Engineer @ 4Securitas} & \hfill Apr 2023 - Oct 2023 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Backend Team Leader. Building from scratch the new version of the cybersecurity platform. Shaping the architecture to meet business requirements. Mentoring junior devs. Golang, Docker, PostgreSQL, Redis.}\\
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
 \textbf{Software Engineer @ Polygon} & \hfill Oct 2022 - Apr 2023 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Member of the zkEVM-node team. The project is about building a second layer network, helping Ethereum to scale using zk-rollups
-(\href{https://github.com/0xPolygonHermez/zkevm-node}{https://github.com/0xPolygonHermez/zkevm-node}). Development of the node core logic, integrating ZK Proofs, Ethereum L1 interaction. Focusing on concurrency patterns. Golang, Docker, PostgreSQL, C++.}\\
+\multicolumn{2}{@{}X@{}}{Member of the 
+\href{https://github.com/0xPolygonHermez/zkevm-node}{zkEVM-node} team. The project is about building a second layer network, helping Ethereum to scale using zk-rollups. Development of the node core logic, integrating ZK Proofs, Ethereum L1 interaction. Focusing on concurrency patterns. Golang, Docker, PostgreSQL, C++.}\\
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
@@ -159,12 +170,6 @@ Working experience on distributed systems, image processing, blockchain. Interes
 \multicolumn{2}{@{}X@{}}{Development of distributed server-side web applications and APIs.
 Main project: Microservices application for a Fintech company. Main challenges: asynchronous messaging, credit card payment processing.
 {C\#, Golang, Python, MongoDB, PostgreSQL, Redis, RabbitMQ, Elasticsearch.}
-}
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Data Analyst @ Valvitalia} & \hfill Jan 2013 - Aug 2017 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{First steps into self-taught programming. Development of VB applications based on MS Excel and MS Access. Creating dashboards in PowerBI.
 }
 \end{tabularx}
 
@@ -186,9 +191,9 @@ Main project: Microservices application for a Fintech company. Main challenges: 
 %----------------------------------------------------------------------------------------
 \section{Education}
 \begin{tabularx}{\linewidth}{@{}l X@{}}	
-2003 - 2007 & Bachelor's Degree at \textbf{Università Cattolica del Sacro Cuore} \hfill (100/110) \\ 
+2003 - 2007 & Bachelor's Degree in Economics at \textbf{Università Cattolica del Sacro Cuore} \hfill (100/110) \\ 
 
-2022 & Science and Maths High School at \textbf{Liceo Scientifico A.Volta} \hfill  (90/100) \\
+2022 & Science and Maths High School at \textbf{Liceo Scientifico A.Volta} \hfill  (95/100) \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -211,8 +216,10 @@ Platforms and tools &  \normalsize{Linux, Docker/Kubernetes, AWS, Databases (Red
 Soft Skills &  \normalsize{Meticulous and persevering, Agile principles, collaborative and friendly.}\\[3pt]  
 \end{tabularx}
 
-\vfill
-\center{\footnotesize Last updated: \today}
+\fancyfoot[C]{\footnotesize Last updated: \today}
+\fancyfoot[R]{
+    \includesvg{image.svg}
+}
 
 \end{document}
 
