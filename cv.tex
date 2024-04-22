@@ -49,10 +49,6 @@
 %----------------------------------------------------------------------------------------
 \usepackage{url}
 \usepackage{parskip}
-\usepackage{svg}
-\usepackage{fancyhdr}
-\setlength{\headheight}{13.59999pt}
-\setlength{\footskip}{35.69884pt}
 
 %other packages for formatting
 \RequirePackage{color}
@@ -107,9 +103,7 @@
 \begin{document}
 
 % non-numbered pages
-\pagestyle{fancy}
-\fancyhf{} % sets both header and footer to nothing
-\renewcommand{\headrulewidth}{0pt}
+\pagestyle{empty} 
 
 %----------------------------------------------------------------------------------------
 %	TITLE
@@ -216,10 +210,8 @@ Platforms and tools &  \normalsize{Linux, Docker/Kubernetes, AWS, Databases (Red
 Soft Skills &  \normalsize{Meticulous and persevering, Agile principles, collaborative and friendly.}\\[3pt]  
 \end{tabularx}
 
-\fancyfoot[C]{\footnotesize Last updated: \today}
-\fancyfoot[R]{
-    \includesvg{image.svg}
-}
+\vfill
+\center{\footnotesize Last updated: \today}
 
 \end{document}
 
