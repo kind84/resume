@@ -9,7 +9,7 @@
 %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %	copies of the Software, and to permit persons to whom the Software is
 %	furnished to do so, subject to the following conditions:
-%	
+%
 %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,207 +17,165 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,11pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
+\documentclass[a4paper,10pt]{article}
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES
 %----------------------------------------------------------------------------------------
-\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{plex-sans}
+\usepackage[scale=0.85]{plex-mono}
+\usepackage{microtype}
 \usepackage{parskip}
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
+\usepackage[a4paper, hmargin=1.5cm, vmargin=1.3cm]{geometry}
 \usepackage{tabularx}
-
-%for lists within experience section
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
+\usepackage[explicit]{titlesec}
+\usepackage{fontawesome5}
 \usepackage[unicode, draft=false]{hyperref}
+
+% links
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
 
-%for social icons
-\usepackage{fontawesome5}
+% centered version of 'X' column type
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
-%debug page outer frames
-%\usepackage{showframe}
+% sections: bold uppercase monospace, with a rule underneath
+\titleformat{\section}{\normalsize\ttfamily\bfseries\raggedright}{}{0em}{\MakeUppercase{#1}}[\titlerule]
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+% compact bullet lists
+\setlist[itemize]{leftmargin=1.2em, topsep=1pt, itemsep=0pt, parsep=0pt, partopsep=0pt}
+
+%----------------------------------------------------------------------------------------
+%	CV MACROS
+%----------------------------------------------------------------------------------------
+% \dates{Dates} -- monospace accent for all date ranges
+\newcommand{\dates}[1]{{\small\ttfamily #1}}
+% \job{Title}{Company}{Dates}
+\newcommand{\job}[3]{\textbf{#1}, #2 \hfill \dates{#3}\par\nopagebreak}
+% \company{Company}{Short description}{Dates} -- for a company with several roles
+\newcommand{\company}[3]{\textbf{#1} \,·\, {\small #2} \hfill \dates{#3}\par\nopagebreak}
+% \role{Title}{Dates} -- one role inside a \company
+\newcommand{\role}[2]{\textit{#1} \hfill \dates{#2}\par\nopagebreak}
+% \stack{Technologies} -- monospace, like a tag list
+\newcommand{\stack}[1]{{\small\ttfamily\color{darkgray}#1}\par\vspace{3pt}}
+% \project{Name}{Link text}{URL}{Description}
+\newcommand{\project}[4]{\textbf{#1} \hfill \href{#3}{#2}\par\nopagebreak #4\par}
 
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
 \begin{document}
-
-% non-numbered pages
-\pagestyle{empty} 
+\pagestyle{empty}
+\setlength{\parskip}{2pt}
 
 %----------------------------------------------------------------------------------------
 %	TITLE
 %----------------------------------------------------------------------------------------
-
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Paolo Grisoli} \\[7pt]
-\href{mailto:paolo.grisoli@proton.me}{\raisebox{-0.05\height}\faEnvelope \ paolo.grisoli@proton.me} \ $|$ \ 
-\href{tel:+393270636139}{\raisebox{-0.05\height}\faMobile \ +39 3270636139} \ $|$ \
-% \href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+\Huge{Paolo Grisoli} \\[6pt]
+\large Senior Backend Engineer (Go) \\[5pt]
+\raisebox{-0.05\height}\faMapMarker*\ Near Milan, Italy (Remote) \ $|$ \
+\href{mailto:paolo.grisoli@proton.me}{\raisebox{-0.05\height}\faEnvelope \ paolo.grisoli@proton.me} \ $|$ \
+\href{tel:+393270636139}{\raisebox{-0.05\height}\faMobile \ +39 327 063 6139} \\[2pt]
+\href{https://www.linkedin.com/in/paologrisoli84/}{\raisebox{-0.05\height}\faLinkedin\ paologrisoli84} \ $|$ \
 \href{https://github.com/kind84}{\raisebox{-0.05\height}\faGithub\ kind84} \ $|$ \
-\href{https://codeberg.org/kind84}{\raisebox{-0.05\height}\faMountain\ kind84} \\ 
+\raisebox{-0.05\height}\faSeedling\ {\small\texttt{did:key:z6MkvcFaZ6Ky69z6sB4ro5a1svJmZbR9AzBJXrTS3DSeUeqJ}} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
+%	SUMMARY
 %----------------------------------------------------------------------------------------
-
-%Interests/ Keywords/ Summary
 \section{Summary}
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\multicolumn{2}{@{}X@{}}{Passionate self taught software engineer, committed to lifetime learning.
-Working experience on distributed systems, image processing, blockchain. Interested into low-level system programming, HPC, bitcoin.}\\
-\end{tabularx}
+Hands-on backend engineer with 9 years of experience building distributed systems in Go.
+Self-taught: I moved into software from an economics degree.
+I lead by building: as Tech Lead at MajelanX I wrote most of the platform's new API,
+and I mentor through code reviews and pairing.
+I use AI tools every day for brainstorming, design and code review, and I own every line I ship.
+In my free time I write low-level code in Zig. My current project is a Bitcoin client.
 
-%Experience
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
 \section{Work Experience}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Lead Software Engineer @ Majelan X} & \hfill Oct 2023 - present \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Backend Team (Core API and AI). AI enhanced audio platform. Building microservices and integrating AI services. Driving design decisions, writing extensive documentation, mentoring. Golang, Temporal, Docker, MySQL, Redis.}\\
-\end{tabularx}
+\company{MajelanX (formerly Majelan)}{audio and media streaming platform}{Oct 2023 \textendash{} present}
+\role{Tech Lead}{Aug 2025 \textendash{} present}
+\begin{itemize}
+  \item Wrote most of the platform's new Go API, from an early skeleton to production:
+        120+ API operations, 46 releases, no major incidents since launch.
+  \item Enforced content access with PostgreSQL Row-Level Security, and streamed database changes
+        to Kafka (CDC) with data contracts checked in CI.
+  \item Lead a team of 3 engineers by example: code reviews, documentation and mentoring.
+\end{itemize}
+\role{Lead Software Engineer}{Oct 2023 \textendash{} Aug 2025}
+\begin{itemize}
+  \item Shaped the new service architecture for the legacy Go API and migrated core packages to it.
+  \item Built AI features for the audio platform: auto-generated audio content and text-to-speech.
+  \item Co-developed the recommendation engine; built automotive partner integrations and the DB test suite.
+\end{itemize}
+\stack{Go, PostgreSQL, MySQL, Redis, Kafka/Redpanda, Temporal, OpenAPI, AWS, Docker, GitHub Actions}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Lead Software Engineer @ Dectar} & \hfill Apr 2023 - Oct 2023 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Backend Team Leader. Building from scratch the new version of the cybersecurity platform. Shaping the architecture to meet business requirements. Mentoring junior devs. Golang, Docker, PostgreSQL, Redis, Zig.}\\
-\end{tabularx}
+\job{Lead Software Engineer}{Dectar}{Apr 2023 \textendash{} Oct 2023}
+\begin{itemize}
+  \item Rebuilt the cybersecurity platform's backend from scratch as team lead; mentored junior developers.
+  \item Built the database-layer service and integrated Apache AGE (graph extension for PostgreSQL) for graph queries.
+\end{itemize}
+\stack{Go, PostgreSQL, Apache AGE, Redis, Docker, Zig}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Software Engineer @ Polygon} & \hfill Oct 2022 - Apr 2023 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Member of the 
-\href{https://github.com/0xPolygonHermez/zkevm-node}{zkEVM-node} team. Development of the node core logic, integrating ZK Proofs, Ethereum L1 interaction. Focusing on concurrency patterns. Golang, Docker, PostgreSQL, C++.}\\
-\end{tabularx}
+\job{Software Engineer}{Polygon}{Oct 2022 \textendash{} Apr 2023}
+\begin{itemize}
+  \item Member of the open-source \href{https://github.com/0xPolygonHermez/zkevm-node}{zkEVM node} team. Worked on the node
+        core logic: ZK proof integration and Ethereum L1 interaction, with a focus on concurrency patterns.
+\end{itemize}
+\stack{Go, PostgreSQL, Docker, C++}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Software Engineer @ Keen Eye} & \hfill Sept 2019 - Sept 2022 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Backend team member of the AI-based biomedical image analysis platform. Server-side development (Golang) and image processing (C++, Zig). Main accomplishment: concurrent image ingestion and processing pipeline.  Golang, Kubernetes, MongoDB, Redis, C++, Zig.}\\
-\end{tabularx}
+\job{Software Engineer}{Keen Eye}{Sep 2019 \textendash{} Sep 2022}
+\begin{itemize}
+  \item Built a concurrent image ingestion and processing pipeline in Go for an AI-based biomedical imaging platform.
+  \item Built the Go side of Deep Zoom pyramid generation for whole-slide images, with the tiling in C++.
+\end{itemize}
+\stack{Go, C++, Zig, Kubernetes, MongoDB, Redis}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Software Engineer @ 4ward} & \hfill Sept 2017 - Sept 2019 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Development of distributed server-side web applications and APIs.
-Main project: Microservices application for a Fintech company. Main challenges: asynchronous messaging, credit card payment processing.
-{C\#, Golang, Python, MongoDB, PostgreSQL, Redis, RabbitMQ, Elasticsearch.}
-}
-\end{tabularx}
+\job{Software Engineer}{4ward}{Sep 2017 \textendash{} Sep 2019}
+\begin{itemize}
+  \item Built distributed web applications and APIs. Main project: microservices for a fintech company,
+        with asynchronous messaging and credit card payment processing.
+\end{itemize}
+\stack{C\#, Go, Python, MongoDB, PostgreSQL, Redis, RabbitMQ, Elasticsearch}
 
-%Projects
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
 \section{Personal Projects}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{zigcoin} & \hfill \href{https://codeberg.org/kind84/zigcoin}{https://codeberg.org/kind84/zigcoin} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Bitcoin client and CLI tool written in Zig. Work in progress.}  \\
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{ZigIO} & \hfill \href{https://github.com/kind84/zig-io}{https://github.com/kind84/zig-io} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Converter for translating image files into a cloud friendly format. Port in Zig of an existing C++ project.}  \\
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{gospiga} & \hfill \href{https://github.com/kind84/gospiga}{https://github.com/kind84/gospiga} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{Backend for an Italian Cuisine application. Using Go, Redis, DGraph}  \\
+\project{zigcoin}{\texttt{rad:z3qFJphMet7XuyDH8JJQeA82kWtwc}}{https://app.radicle.xyz/nodes/iris.radicle.network/rad:z3qFJphMet7XuyDH8JJQeA82kWtwc}{Zig library and CLI (\texttt{ztc}) for the Bitcoin JSON-RPC API, with type-safe calls built on Zig's comptime.}
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programming   & \textbf{Expert:} Go \ · \ \textbf{Proficient:} Zig \ · \ \textbf{Familiar:} C/C++, Python, Rust \\
+Backend       & PostgreSQL (RLS, Apache AGE), MySQL, MongoDB, Redis, Kafka, CDC, Temporal, OpenAPI \\
+Platforms     & Linux, Docker, Kubernetes, AWS, GitHub Actions \\
+Languages     & Italian (native), English (proficient), French (basic) \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
 \section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2003 - 2007 & Bachelor's Degree in Economics at \textbf{Università Cattolica del Sacro Cuore} \hfill (100/110) \\ 
-
-2022 & Science and Maths High School at \textbf{Liceo Scientifico A.Volta} \hfill  (95/100) \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-% \section{Publications}
-% \begin{refsection}[citations.bib]
-% \nocite{*}
-% \printbibliography[heading=none]
-% \end{refsection}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
-
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Languages (0:5 scale)  &  \normalsize{Golang (5), Zig (4), C/C++ (2), Python (2), Rust (1).}\\[3pt]
-Platforms and tools &  \normalsize{Linux, Docker/Kubernetes, AWS, Databases (Redis, MongoDB, PostgreSQL).}\\[3pt]
-Soft Skills &  \normalsize{Meticulous and persevering, collaborative and friendly.}\\[3pt]  
-\end{tabularx}
+\textbf{Bachelor's Degree in Economics}, Università Cattolica del Sacro Cuore (100/110) \hfill \dates{2003 \textendash{} 2007}
 
 \vfill
-\center{\footnotesize Last updated: \today}
+\begin{center}
+{\footnotesize\ttfamily Last updated: \today}
+\end{center}
 
 \end{document}
-
-
